@@ -207,31 +207,32 @@ void Calibrator::Calibration(const std::string lidar_path,
   auto refined_Ti2l = refined_Tl2i.inverse().eval();
   std::cout << "refined T(imu 2 lidar): " << std::endl;
   std::cout << refined_Ti2l << std::endl;
-  std::ofstream fCalib(refine_calib_file);
-  if (!fCalib.is_open()) {
-    std::cerr << "open file " << refine_calib_file << "failed." << std::endl;
-    // return 1;
-  }
+  // std::ofstream fCalib(refine_calib_file);
+  // if (!fCalib.is_open()) {
+  //   std::cerr << "open file " << refine_calib_file << "failed." << std::endl;
+  //   // return 1;
+  // }
 
-  fCalib << "refined calib:" << std::endl;
-  fCalib << "R: " << refined_Ti2l(0, 0) << " " << refined_Ti2l(0, 1) << " "
-         << refined_Ti2l(0, 2) << " " << refined_Ti2l(1, 0) << " "
-         << refined_Ti2l(1, 1) << " " << refined_Ti2l(1, 2) << " "
-         << refined_Ti2l(2, 0) << " " << refined_Ti2l(2, 1) << " "
-         << refined_Ti2l(2, 2) << std::endl;
-  fCalib << "t: " << refined_Ti2l(0, 3) << " " << refined_Ti2l(1, 3) << " "
-         << refined_Ti2l(2, 3) << std::endl;
-  fCalib << "deltaTrans:" << std::endl;
-  fCalib << deltaTrans << std::endl;
-  fCalib << "delta roll, pitch, yaw, tx, ty, tz:" << std::endl;
-  fCalib << bestVal[0] << " " << bestVal[1] << " " << bestVal[2] << " "
-         << bestVal[3] << " " << bestVal[4] << " " << bestVal[5] << std::endl;
-  fCalib << "delta roll, pitch, yaw, tx, ty, tz from begin:" << std::endl;
-  fCalib << bestVal[0] + last_deltaT[0] << " " << bestVal[1] + last_deltaT[1]
-         << " " << bestVal[2] + last_deltaT[2] << " "
-         << bestVal[3] + last_deltaT[3] << " " << bestVal[4] + last_deltaT[4]
-         << " " << bestVal[5] + last_deltaT[5] << std::endl;
-  std::cout << "save refined calib to " << refine_calib_file << std::endl;
+  // fCalib << "refined calib:" << std::endl;
+  // fCalib << "R: " << refined_Ti2l(0, 0) << " " << refined_Ti2l(0, 1) << " "
+  //        << refined_Ti2l(0, 2) << " " << refined_Ti2l(1, 0) << " "
+  //        << refined_Ti2l(1, 1) << " " << refined_Ti2l(1, 2) << " "
+  //        << refined_Ti2l(2, 0) << " " << refined_Ti2l(2, 1) << " "
+  //        << refined_Ti2l(2, 2) << std::endl;
+  // fCalib << "t: " << refined_Ti2l(0, 3) << " " << refined_Ti2l(1, 3) << " "
+  //        << refined_Ti2l(2, 3) << std::endl;
+  // fCalib << "deltaTrans:" << std::endl;
+  // fCalib << deltaTrans << std::endl;
+  // fCalib << "delta roll, pitch, yaw, tx, ty, tz:" << std::endl;
+  // fCalib << bestVal[0] << " " << bestVal[1] << " " << bestVal[2] << " "
+  //        << bestVal[3] << " " << bestVal[4] << " " << bestVal[5] <<
+  //        std::endl;
+  // fCalib << "delta roll, pitch, yaw, tx, ty, tz from begin:" << std::endl;
+  // fCalib << bestVal[0] + last_deltaT[0] << " " << bestVal[1] + last_deltaT[1]
+  //        << " " << bestVal[2] + last_deltaT[2] << " "
+  //        << bestVal[3] + last_deltaT[3] << " " << bestVal[4] + last_deltaT[4]
+  //        << " " << bestVal[5] + last_deltaT[5] << std::endl;
+  // std::cout << "save refined calib to " << refine_calib_file << std::endl;
 }
 
 void Calibrator::SaveStitching(const Eigen::Matrix4d transform,

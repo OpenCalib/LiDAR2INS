@@ -33,7 +33,6 @@ int main(int argc, char **argv) {
   string lidar_pcds_dir = argv[1];
   string poses_path = argv[2];
   string extrinsic_json = argv[3];
-  string stitching_path = "stitching.pcd";
   // load extrinsic
   Eigen::Matrix4d json_param;
   LoadExtrinsic(extrinsic_json, json_param);
@@ -42,14 +41,6 @@ int main(int argc, char **argv) {
   Eigen::Matrix4d lidar2imu_extrinsic = json_param.inverse().eval();
   std::cout << json_param << std::endl;
   Eigen::Matrix4d transform = Eigen::Matrix4d::Identity();
-  // Registrator registrator;
-  // registrator.LoadOdometerData(poses_path, lidar2imu);
-  // registrator.LoadLidarPCDs(lidar_pcds_dir);
-  // registrator.RegistrationByGroundPlane(transform);
-  // registrator.RegistrationByVoxelOccupancy(transform);
-  // registrator.SaveStitching(stitching_path);
-  // std::cout << "the calibration result is " << std::endl;
-  // std::cout << transform << std::endl;
   Calibrator calibrator;
   calibrator.Calibration(lidar_pcds_dir, poses_path, lidar2imu_extrinsic);
 
