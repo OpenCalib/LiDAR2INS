@@ -1,7 +1,6 @@
 lib/
 bin/
 build/
-data/
 cmake-build-debug/
 cmake-build-release/
 LiDAR-SLAM/3rdparty
