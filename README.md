@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a project for LiDAR to pose-sensor calibration <a href="https://arxiv.org/" title="paper">[paper]</a>. 
+This is a project for LiDAR to pose-sensor calibration <a href="https://arxiv.org/abs/2209.07694" title="paper">[paper]</a>. 
 <strong>Note: </strong> Some code based on octree fine-tuning and z-axis correction has been removed temporarily due to some ownership and data protection policies. The removed part of the code is easy to implement; you can refer to the paper to implement it yourself. For more calibration codes, please refer to the link <a href="https://github.com/PJLab-ADG/SensorsCalibration" title="SensorsCalibration">SensorsCalibration</a>
 
 ## Prerequisites
